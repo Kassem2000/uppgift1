@@ -9,64 +9,59 @@ public class Main {
         System.out.println("Val 3: Betala en eller flera fakturor");
         System.out.println("Välj ett av dessa val mellan 1,2 eller 3");
 
-        Scanner användaren = new Scanner(System.in);
+        Scanner användaren = new Scanner(System.in); // Här säger jag till programmet att vi ska ha scanner
 
-        int input = användaren.nextInt();
+        int input = användaren.nextInt(); // Här döper jag scannern till input
 
          if (input == 1) {
              System.out.println("Skriv hur många anställda du vill betala löner till?");
 
-             int chefen = användaren.nextInt();
+             int chefen = användaren.nextInt(); // Här gör jag en ny scanner som jag döper till chefen
 
-             int[] anställda = new int[chefen];
+             int[] array = new int[chefen]; // Här skapar jag en array som jag kallar för array
 
-             for (int i = 0; i < chefen; i++) {
+             for (int i = 0; i < chefen; i++) {  // Detta är en loop som ska utgå ifrån vad chefen väljer
                  System.out.println("Hur mycket vill du betala din anställd nr? " + (i + 1));
-                 anställda[i] = användaren.nextInt();
+                 array[i] = användaren.nextInt();
              }
 
              System.out.println("Löner efter skatt för alla anställda:");
 
-             for (int i = 0; i < chefen; i++) {
-                 double efterSkatt = anställda[i] * 0.7;
-                 System.out.println("Anställd " + (i + 1) + ": " + efterSkatt);
+             for (int i = 0; i < chefen; i++) { // Detta är en loop som ska räkna ut vad de asntällda tjänar efter skatt
+                 double efterSkatt = array[i] * 0.7;
+                 System.out.println("Anställd: " + (i + 1) + " " + efterSkatt + " kr");
 
              }
-         }
-
-         else if (input == 2) {
+         } else if (input == 2) {
              System.out.println("Vad är den totala summan av den nya fakturan?");
-             double summan = användaren.nextDouble();
+             double summan = användaren.nextDouble(); // Ny scanner som kallas för summan
              double bruttoSumman = summan;
              System.out.println("Din brutto summa är " + summan + "kr");
              double moms = (summan /100) * 25;
              System.out.println("Summan för moms är " + moms + "kr");
-             double total = bruttoSumman - moms;
-             System.out.println("Netto summan är " + total + "kr");
+             double slutet = bruttoSumman - moms;
+             System.out.println("Netto summan är " + slutet + "kr");
 
          } else if (input == 3) {
             System.out.println("Hur många fakturor ska du betala?");
 
             int antalFakturor = användaren.nextInt();
 
+            int[] Array = new int[antalFakturor];
 
-              for (int i = 1; i < antalFakturor + 1; i++) {
-                  System.out.println("Hur mycket är kostnaden på faktura " + i + "?");
+            for (int i = 0; i < antalFakturor; i++) {
+                  System.out.println("Hur mycket är kostnaden på faktura " + (i + 1) + "?");
+                  Array[i] = användaren.nextInt();
               }
 
+             double kontoSaldo = 10000.0; // Detta är hur mycket pengar det finns i kontot
 
-
-
-
-
-
-
-
-
-
-
-        }
-         else {
+             for (int i = 0; i < antalFakturor; i++) {
+                 kontoSaldo -= Array[i];
+             }
+             System.out.println("Kvar på kontot: " + kontoSaldo);
+         }
+          else {
              System.out.println("Försök igen, du kan endast välja 1,2 eller 3.");
          }
 
