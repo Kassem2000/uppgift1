@@ -18,10 +18,10 @@ public class Main {
 
              int chefen = användaren.nextInt(); // Här gör jag en ny scanner som jag döper till chefen
 
-             int[] array = new int[chefen]; // Här skapar jag en array som jag kallar för array
+             int[] array = new int[chefen]; // Här skapar jag en array som jag kallar för array som ska utgå ifrån användaren
 
              for (int i = 0; i < chefen; i++) {  // Detta är en loop som ska utgå ifrån vad chefen väljer
-                 System.out.println("Hur mycket vill du betala din anställd nr? " + (i + 1));
+                 System.out.println("Hur mycket vill du betala din anställd nr " + (i + 1) + "?");
                  array[i] = användaren.nextInt();
              }
 
@@ -43,28 +43,32 @@ public class Main {
              System.out.println("Netto summan är " + slutet + "kr");
 
          } else if (input == 3) {
-            System.out.println("Hur många fakturor ska du betala?");
+             System.out.println("Hur många fakturor ska du betala?");
 
-            int antalFakturor = användaren.nextInt();
+             int antalFakturor = användaren.nextInt();
 
-            int[] Array = new int[antalFakturor];
+             int[] Array = new int[antalFakturor]; // Här skapas en array som ska utgå ifrån användaren
 
-            for (int i = 0; i < antalFakturor; i++) {
-                  System.out.println("Hur mycket är kostnaden på faktura " + (i + 1) + "?");
-                  Array[i] = användaren.nextInt();
-              }
-
+             for (int i = 0; i < antalFakturor; i++) {
+                 System.out.println("Hur mycket är kostnaden på faktura " + (i + 1) + "?");
+                 Array[i] = användaren.nextInt(); // Denna raden sparar vad kostnaden är på varje faktua i en array
+             }
              double kontoSaldo = 10000.0; // Detta är hur mycket pengar det finns i kontot
+             double totalKostnad = 0.0;
 
              for (int i = 0; i < antalFakturor; i++) {
                  kontoSaldo -= Array[i];
              }
-             System.out.println("Kvar på kontot: " + kontoSaldo);
-         }
-          else {
+             double efterAllaFakturor = kontoSaldo - totalKostnad;
+
+             if (efterAllaFakturor >= 0) {
+                 System.out.println("Kvar i kontot " + efterAllaFakturor + "kr");
+             } else {
+                 System.out.println("Du har inte tillräckligt med pengar i kontot, vänligen kolla igenom ditt saldo.");
+             }
+         } else {
              System.out.println("Försök igen, du kan endast välja 1,2 eller 3.");
          }
-
 
 
 
