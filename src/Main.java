@@ -14,7 +14,7 @@ public class Main {
         int input = användaren.nextInt(); // Här döper jag scannern till input
 
          if (input == 1) {
-             System.out.println("Skriv hur många anställda du vill betala löner till?");
+             System.out.println("Hur många anställda du vill betala löner till?");
 
              int chefen = användaren.nextInt(); // Här gör jag en ny scanner som jag döper till chefen
 
@@ -30,7 +30,6 @@ public class Main {
              for (int i = 0; i < chefen; i++) { // Detta är en loop som ska räkna ut vad de asntällda tjänar efter skatt
                  double efterSkatt = array[i] * 0.7;
                  System.out.println("Anställd: " + (i + 1) + " " + efterSkatt + " kr");
-
              }
          } else if (input == 2) {
              System.out.println("Vad är den totala summan av den nya fakturan?");
@@ -53,7 +52,7 @@ public class Main {
                  System.out.println("Hur mycket är kostnaden på faktura " + (i + 1) + "?");
                  Array[i] = användaren.nextInt(); // Denna raden sparar vad kostnaden är på varje faktua i en array
              }
-             double kontoSaldo = 10000.0; // Detta är hur mycket pengar det finns i kontot
+             double kontoSaldo = 19000.0; // Detta är hur mycket pengar det finns i kontot
              double totalKostnad = 0.0;
 
              for (int i = 0; i < antalFakturor; i++) {
